@@ -1,0 +1,216 @@
+fileFormatVersion: 2
+guid: e30d32841dc611746a9211fe2373e3bd
+ModelImporter:
+  serializedVersion: 22
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: polySurface6
+    100004: polySurface6_MeshPart0
+    100006: polySurface6_MeshPart1
+    100008: polySurface6_MeshPart10
+    100010: polySurface6_MeshPart11
+    100012: polySurface6_MeshPart12
+    100014: polySurface6_MeshPart13
+    100016: polySurface6_MeshPart14
+    100018: polySurface6_MeshPart15
+    100020: polySurface6_MeshPart16
+    100022: polySurface6_MeshPart17
+    100024: polySurface6_MeshPart18
+    100026: polySurface6_MeshPart19
+    100028: polySurface6_MeshPart2
+    100030: polySurface6_MeshPart3
+    100032: polySurface6_MeshPart4
+    100034: polySurface6_MeshPart5
+    100036: polySurface6_MeshPart6
+    100038: polySurface6_MeshPart7
+    100040: polySurface6_MeshPart8
+    100042: polySurface6_MeshPart9
+    400000: //RootNode
+    400002: polySurface6
+    400004: polySurface6_MeshPart0
+    400006: polySurface6_MeshPart1
+    400008: polySurface6_MeshPart10
+    400010: polySurface6_MeshPart11
+    400012: polySurface6_MeshPart12
+    400014: polySurface6_MeshPart13
+    400016: polySurface6_MeshPart14
+    400018: polySurface6_MeshPart15
+    400020: polySurface6_MeshPart16
+    400022: polySurface6_MeshPart17
+    400024: polySurface6_MeshPart18
+    400026: polySurface6_MeshPart19
+    400028: polySurface6_MeshPart2
+    400030: polySurface6_MeshPart3
+    400032: polySurface6_MeshPart4
+    400034: polySurface6_MeshPart5
+    400036: polySurface6_MeshPart6
+    400038: polySurface6_MeshPart7
+    400040: polySurface6_MeshPart8
+    400042: polySurface6_MeshPart9
+    2300000: polySurface6_MeshPart0
+    2300002: polySurface6_MeshPart1
+    2300004: polySurface6_MeshPart10
+    2300006: polySurface6_MeshPart11
+    2300008: polySurface6_MeshPart12
+    2300010: polySurface6_MeshPart13
+    2300012: polySurface6_MeshPart14
+    2300014: polySurface6_MeshPart15
+    2300016: polySurface6_MeshPart16
+    2300018: polySurface6_MeshPart17
+    2300020: polySurface6_MeshPart18
+    2300022: polySurface6_MeshPart19
+    2300024: polySurface6_MeshPart2
+    2300026: polySurface6_MeshPart3
+    2300028: polySurface6_MeshPart4
+    2300030: polySurface6_MeshPart5
+    2300032: polySurface6_MeshPart6
+    2300034: polySurface6_MeshPart7
+    2300036: polySurface6_MeshPart8
+    2300038: polySurface6_MeshPart9
+    3300000: polySurface6_MeshPart0
+    3300002: polySurface6_MeshPart1
+    3300004: polySurface6_MeshPart10
+    3300006: polySurface6_MeshPart11
+    3300008: polySurface6_MeshPart12
+    3300010: polySurface6_MeshPart13
+    3300012: polySurface6_MeshPart14
+    3300014: polySurface6_MeshPart15
+    3300016: polySurface6_MeshPart16
+    3300018: polySurface6_MeshPart17
+    3300020: polySurface6_MeshPart18
+    3300022: polySurface6_MeshPart19
+    3300024: polySurface6_MeshPart2
+    3300026: polySurface6_MeshPart3
+    3300028: polySurface6_MeshPart4
+    3300030: polySurface6_MeshPart5
+    3300032: polySurface6_MeshPart6
+    3300034: polySurface6_MeshPart7
+    3300036: polySurface6_MeshPart8
+    3300038: polySurface6_MeshPart9
+    4300000: polySurface6_MeshPart0
+    4300002: polySurface6_MeshPart1
+    4300004: polySurface6_MeshPart2
+    4300006: polySurface6_MeshPart3
+    4300008: polySurface6_MeshPart4
+    4300010: polySurface6_MeshPart5
+    4300012: polySurface6_MeshPart6
+    4300014: polySurface6_MeshPart7
+    4300016: polySurface6_MeshPart8
+    4300018: polySurface6_MeshPart9
+    4300020: polySurface6_MeshPart10
+    4300022: polySurface6_MeshPart11
+    4300024: polySurface6_MeshPart12
+    4300026: polySurface6_MeshPart13
+    4300028: polySurface6_MeshPart14
+    4300030: polySurface6_MeshPart15
+    4300032: polySurface6_MeshPart16
+    4300034: polySurface6_MeshPart17
+    4300036: polySurface6_MeshPart18
+    4300038: polySurface6_MeshPart19
+    6400000: polySurface6_MeshPart0
+    6400002: polySurface6_MeshPart1
+    6400004: polySurface6_MeshPart10
+    6400006: polySurface6_MeshPart11
+    6400008: polySurface6_MeshPart12
+    6400010: polySurface6_MeshPart13
+    6400012: polySurface6_MeshPart14
+    6400014: polySurface6_MeshPart15
+    6400016: polySurface6_MeshPart16
+    6400018: polySurface6_MeshPart17
+    6400020: polySurface6_MeshPart18
+    6400022: polySurface6_MeshPart19
+    6400024: polySurface6_MeshPart2
+    6400026: polySurface6_MeshPart3
+    6400028: polySurface6_MeshPart4
+    6400030: polySurface6_MeshPart5
+    6400032: polySurface6_MeshPart6
+    6400034: polySurface6_MeshPart7
+    6400036: polySurface6_MeshPart8
+    6400038: polySurface6_MeshPart9
+    2186277476908879412: ImportLogs
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: polySurface6Mat
+    second: {fileID: 2100000, guid: 8c2092e3d5a71894fa581078b4886b65, type: 2}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 0
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

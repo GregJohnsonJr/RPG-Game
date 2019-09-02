@@ -1,0 +1,67 @@
+[
+  {
+    "id": 0,
+    "title": "Medieval sword",
+    "value": 6,
+    "stats": {
+      "strength": 4,
+      "intellect": 3,
+      "stamina": 2,
+      "endurance": 4,
+      "agility": 4,
+      "mastery": 2
+    },
+    "Type": "Weapon",
+    "WeaponType": "Sword",
+    "description": "An old Sword",
+    "stackable": false,
+    "rarity": 3,
+    "slug": "medieval_sword"
+  },
+  {
+    "id": 1,
+    "title": "Magical Bow",
+    "value": 542,
+    "stats": {
+      "strength": 2,
+      "intellect": 2,
+      "stamina": 3,
+      "endurance": 2,
+      "agility": 6,
+      "mastery": 4
+    },
+    "Type": "Weapon",
+    "WeaponType": "Bow",
+    "description": "A Powerful Bow",
+    "stackable": true,
+    "rarity": 3,
+    "slug": "Magical_Bow"
+  },
+  {
+    "id": 2,
+    "title": "Snail Shell",
+    "value": 542,
+    "stats": {
+      "strength": 0,
+      "intellect": 0,
+      "stamina": 0,
+      "endurance": 0,
+      "agility": 0,
+      "mastery": 0
+    },
+    "Type": "Resource",
+    "WeaponType": "N/A",
+    "description": "A Shell",
+    "stackable": true,
+    "rarity": 3,
+    "slug": "Magical_Bow"
+  }
+  // Make items scalable to drop at different levels
+  // Matts God tier weapon
+  // Two die
+  // Name: Forever in your odds
+  // Effect: Every 10 seconds you can roll the dye
+  // If it lands between  6 up you have 50% reduced cdr
+  // 50% increased crit and 50% bonus attack damage
+  // You have to get
+]
