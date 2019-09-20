@@ -8,7 +8,7 @@ using System.Linq;
 using System.Reflection;
 
 //Should I create a database??
-
+//[RequireComponent(typeof(BaseCharacterClass))]
 public class SpellBookInfo : MonoBehaviour
 {
     
@@ -18,10 +18,13 @@ public class SpellBookInfo : MonoBehaviour
     public GameObject abilityInfo;
     int damage;
     string abilityName;
+    BaseCharacterClass playerClass;
     // I need to think of a way to dynamically get all the spells in the book for what they are, i think that will
     // Come later when i have a whole class of spells implemented.
     void Start()
     {
+        //playerClass = GetComponent<BaseCharacterClass>();
+        //playerClass.characterClassName
         SetUpSpellBook();
     }
     // Update is called once per frame
@@ -31,6 +34,7 @@ public class SpellBookInfo : MonoBehaviour
     }
     void SetUpSpellBook() // We might just create and destroy this? hmm
     {
+        // Make it so it only grabs information from its class
         for (int i = whereIDStarts; i < whereIDStarts + spellCount; i++)
         {
 

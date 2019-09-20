@@ -4,7 +4,7 @@ using UnityEngine;
 using System.Reflection;
 using System;
 using System.Linq;
- 
+
 // This class is used to create prototype abilities to be used inside the game
 // In this class you can create a ability with an id, damage, effects, and everything you need for it.
 // The abilitys you can create are limitless as long as you can program the actual ability you want.
@@ -14,6 +14,9 @@ using System.Linq;
 // You will also be able to tweak and improve every ability to your liking in this class, we use 
 // objects to send back to the programmed abilities to grab the information for the ability.
 // You are also allowed to send back strings for resources loads to dynamically load gameobjects
+
+
+
 // THE POSSIBILITES ARE ENDLESS
 public enum SpellTypes
 {
@@ -21,7 +24,8 @@ public enum SpellTypes
     ATTACK,
     SUMMON
 }
-public class AbilityCreatorClass {
+public class AbilityCreatorClass
+{
     public BulletRushAbility bulletRushAbility;
     public BlastAttackAbility blastAttackAbility;
     public GameObject project;
@@ -38,7 +42,7 @@ public class AbilityCreatorClass {
         //Debug.Log(GetAbility(2).ToString());
         //Debug.Log(GetAbility(3).ToString());
         //Debug.Log(GetAbility(4).ToString());
-        project = projector;      
+        project = projector;
     }
     /// <summary>
     /// Id is never 0, as for projectors... We are going to have to have to set them from the object.
@@ -50,12 +54,12 @@ public class AbilityCreatorClass {
         // This is a way to make dynamic classes without knowing the type
         // I use the system reflection namespace to grab the asseblys and create the object
         // Then i return the object and grab the values via script.. Actually pretty cool
-        var list = FindSubClasses().ToList();  
+        var list = FindSubClasses().ToList();
         // Make is so i can just throw in a id, and it will automatically make a new class                                    // and use the projector with the constructor....
         object item;
-        var myType = list.ElementAt(ID-1);
+        var myType = list.ElementAt(ID - 1);
         //Type type = Type.GetType(myType.ToString());
-        item = System.Reflection.Assembly.GetExecutingAssembly().CreateInstance(myType.ToString(),true);
+        item = System.Reflection.Assembly.GetExecutingAssembly().CreateInstance(myType.ToString(), true);
         var temp = item;
         return temp;
         // will return an ability based on id.
@@ -73,15 +77,15 @@ public class AbilityCreatorClass {
             }
         }
     }
-   public AbilityCreatorClass() { }
-   public AbilityCreatorClass(string stringAddress) { }
+    public AbilityCreatorClass() { }
+    public AbilityCreatorClass(string stringAddress) { }
 }
 
 // Add a description for spellbook
 public class BulletRushAbility : AbilityCreatorClass // <- like a volley of arrows
 {
     int ID = 1;
-    public float baseDamage = (5 + (GameInformation.Mastery* 3) + (GameInformation.Agility* 7)) * UnityEngine.Random.Range(0.94f, 0.98f); // Some calculation
+    public float baseDamage = (5 + (GameInformation.Mastery * 3) + (GameInformation.Agility * 7)) * UnityEngine.Random.Range(0.94f, 0.98f); // Some calculation
     public float critChance = 0.03f;
     public int range = 6;
     GameObject projector;
@@ -136,7 +140,7 @@ public class ShieldProtectionAbility : AbilityCreatorClass //<- Basic Shield Abi
     public int duration = 5;
     GameObject projector;
     public AbilityInformation ability;
-    public ShieldProtectionAbility(){}
+    public ShieldProtectionAbility() { }
     public void GetShieldBuff()
     {
         ability = new AbilityInformation();
@@ -162,11 +166,11 @@ public class SummonTurretAbility : AbilityCreatorClass, EnhancerClass
     public int duration = 60; // <- after this duration it dissapears...Only for stationary summons
     public SummonInfo info;
     public string name = "Turret";
-    public string attackProjector = "RangedAttackProjector"; 
+    public string attackProjector = "RangedAttackProjector";
     // No heal projector in this one
     public SummonTurretAbility()
-    {       
-        info = new SummonInfo();      
+    {
+        info = new SummonInfo();
         SummonAbilites abilites = new SummonAbilites(info);
     }
     public void AddAbilityToClass()
@@ -190,7 +194,7 @@ public class HealingTurretAbility : AbilityCreatorClass, EnhancerClass
     public SummonInfo info;
     public string name = "HealTurret"; // <- Have to make another turret and name it heal with the correct presets. Thank god I made an ai for everything
     public string attackProjector = "RangedAttackProjector"; // going to be more then one projector later for certian abilites
-    // No heal projector in this one
+                                                             // No heal projector in this one
     public HealingTurretAbility()
     {
         info = new SummonInfo();
@@ -216,7 +220,7 @@ public class HealingAttackTurret : AbilityCreatorClass, EnhancerClass
     public SummonInfo info;
     public string name = "HealAttackTurret"; // <- Have to make another turret and name it heal with the correct presets. Thank god I made an ai for everything
     public string attackProjector = "RangedAttackProjector"; // going to be more then one projector later for certian abilites
-    // No heal projector in this one
+                                                             // No heal projector in this one
     public HealingAttackTurret()
     {
         info = new SummonInfo();
@@ -280,7 +284,7 @@ public class WaterPowerSuit : AbilityCreatorClass, EnhancerClass
     public bool isAOE = true;
     public float aoeRadius = 1.5f;
     public string waterProj = "WaterBomb"; // <- or something like that
-    //Basically make all the turrets attacks make a watery explosion on impact
+                                           //Basically make all the turrets attacks make a watery explosion on impact
     public int range = 0;
     GameObject projector;
     public WaterPowerSuit()
@@ -303,7 +307,7 @@ public class LightningPowerSuit : AbilityCreatorClass, EnhancerClass
     public int damageAdditive = 100 * GameInformation.PlayerLevel;
     public int nerfedHealth = (int)(GameInformation.PlayerHealth * 0.15f); // 15% of health is gone subtract this from maxHp
     public string lightningPaths = "LightningProj"; // So we can find the lightning prefab
-    //Basically makes your turrets shoot out electricity for sustained damage
+                                                    //Basically makes your turrets shoot out electricity for sustained damage
     public int range = 0;
     public LightningPowerSuit()
     { }
@@ -316,7 +320,7 @@ public class LightningPowerSuit : AbilityCreatorClass, EnhancerClass
         "It causes all your attacks to do a small bit of extra lightning damage, and your turrets shoot sustained lightning towards the target.";
     public string type = "Buff";
 }
-public class EarthPowerSuit : AbilityCreatorClass, EnhancerClass 
+public class EarthPowerSuit : AbilityCreatorClass, EnhancerClass
 {
     int ID = 12;
     AbilityInformation ability;
