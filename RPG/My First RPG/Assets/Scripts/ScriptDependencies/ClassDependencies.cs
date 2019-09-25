@@ -13,3 +13,14 @@ public static class Scalar
     public static float damageMultiple = 2f;
     public static float summonRange = 9;
 }
+namespace AIAdditions
+{
+    public class AIExtensions
+    {
+        public Vector3 FindRandomPosition(Vector3 pos, float range)
+        {
+            Vector3 temp = Random.insideUnitSphere * range;
+            return (temp + pos);
+        }
+    }
+}
