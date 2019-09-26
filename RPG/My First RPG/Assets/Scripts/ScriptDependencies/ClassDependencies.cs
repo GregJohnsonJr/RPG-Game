@@ -22,5 +22,31 @@ namespace AIAdditions
             Vector3 temp = Random.insideUnitSphere * range;
             return (temp + pos);
         }
+        /// <summary>
+        /// Returns 0 if the number returned is the first one, and 1 if it is the second one
+        /// </summary>
+        /// <param name="percentOfFirstNum"></param>
+        /// <param name="seededRand"></param>
+        /// <returns></returns>
+        public int FindRandonNumberBetweenTwo(float percentOfFirstNum, System.Random seededRand)
+        {
+            int rand = seededRand.Next(1, 100);
+            if (rand <= percentOfFirstNum)
+            {
+                return 0; // -> First number
+            }
+            else
+                return 1;// -> Second number
+        }
+        /// <summary>
+        /// With 0 being the first number and amountOfNumbers being the last number
+        /// </summary>
+        /// <param name="amountOfNumbers"></param>
+        /// <param name="seededRand"></param>
+        /// <returns></returns>
+        public int ChooseRandomNumber(int amountOfNumbers, System.Random seededRand)
+        {
+            return seededRand.Next(0, amountOfNumbers);
+        }
     }
 }

@@ -23,6 +23,8 @@ public class CityAI : MonoBehaviour
     public bool isAduilt;
     [Tooltip("Is the current npc a Merchant")]
     public bool isMerchant; // we can get more specific with the types later
+    [Tooltip("Is the current npc an QuestGiver")]
+    public bool isQuestGiver;
     public float runSpeed = 16f;
     public float walkSpeed = 8f;
     NavMeshAgent agent;
@@ -33,6 +35,8 @@ public class CityAI : MonoBehaviour
     AIExtensions aiExtra;
     System.Random rand;
     bool isExploring;
+    [Range(0,100)]
+    public float chanceToRun;
     // Start is called before the first frame update
     void Start()
     {
@@ -52,15 +56,23 @@ public class CityAI : MonoBehaviour
     {
         if (!isExploring)
         {
-            int num = rand.Next(0, 1);
+            int num = aiExtra.FindRandonNumberBetweenTwo(chanceToRun, rand);
             if (num == 0)
             {
-                states = States.WALKAROUND;
+                states = States.RUNAROUND;
             }
             else
-                states = States.RUNAROUND;
+                states = States.WALKAROUND;
         }
-
+        if (isMerchant)
+        {
+            states = States.LOOKAROUND;
+        }
+        if (isQuestGiver)
+        {
+            // For
+            states = States.LOOKAROUND;
+        }
             switch (states)
             {
                 case States.WALKAROUND:
@@ -112,9 +124,22 @@ public class CityAI : MonoBehaviour
             isExploring = false;
         }        
     }
+    bool turnAround;
     void LookAroundState() // This state will make the npc stop and look around its area --Merchants manly
     {
+        if (transform.eulerAngles.y < 45f && !turnAround)
+            transform.Rotate(transform.up, .15f);
+        else
+        {
+            transform.Rotate(-transform.up, .15f);
+            turnAround = true;
+            if(transform.eulerAngles.y <= 1f)
+            {
+                turnAround = false;
+            }
+        }
 
+        
     }
     void JumpState()// This state will make the npc jump if it is scared or if it needs to go over gaps
     {
