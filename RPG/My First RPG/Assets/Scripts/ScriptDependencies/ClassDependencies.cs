@@ -50,3 +50,32 @@ namespace AIAdditions
         }
     }
 }
+namespace ScriptingHelper
+{
+    using System;
+    using System.Linq;
+
+    class Helper
+    {
+        struct GameObjectInfo
+        {
+            public float distance;
+            public GameObject obj;
+        }
+        public GameObject GetClosestGameObject(GameObject player, GameObject[] others)
+        {
+            //float[] distance = new float[others.Length];
+            GameObjectInfo[] info = new GameObjectInfo[others.Length];
+            for (int i = 0; i < others.Length; i++)
+            {
+                GameObjectInfo temp;
+                temp.distance = Vector3.Distance(player.transform.position, others[i].transform.position);
+                temp.obj = others[i];
+                info[i] = temp;
+            }
+            info = info.OrderBy(a => a.distance).ToArray();
+            return info[0].obj;
+        }
+    }
+
+}

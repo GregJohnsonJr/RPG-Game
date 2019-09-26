@@ -37,9 +37,14 @@ public class CityAI : MonoBehaviour
     bool isExploring;
     [Range(0,100)]
     public float chanceToRun;
+    [HideInInspector]
+    public bool isTalking;
+    Interactions interactions;
     // Start is called before the first frame update
     void Start()
     {
+        if (GetComponent<Interactions>())
+            interactions = GetComponent<Interactions>();
         aiExtra = new AIExtensions();
         agent = gameObject.GetComponent<NavMeshAgent>();
         rand = new System.Random(System.Environment.TickCount);
@@ -49,8 +54,18 @@ public class CityAI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(interactions)
+        {
+            isTalking = interactions.GetDisplay();
+        }
         dist = Vector3.Distance(transform.position, startPos);
-        StateChangeMachine();
+        if(!isTalking)
+            StateChangeMachine();
+        else
+        {
+            agent.isStopped = true;
+            agent.velocity = Vector3.zero;
+        }
     }
     void StateChangeMachine()
     {

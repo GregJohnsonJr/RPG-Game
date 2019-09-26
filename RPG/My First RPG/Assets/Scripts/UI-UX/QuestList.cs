@@ -8,7 +8,7 @@ public class QuestList : MonoBehaviour
     public Text quest;
     List<Text> texts = new List<Text>();
     // Update is called once per frame
-    public void AddToQuestLog()
+    public void AddToQuestLog() // Add to the quest log
     {
         if (GameInformation.activeQuest.Count > 0)
         {
@@ -20,7 +20,7 @@ public class QuestList : MonoBehaviour
             }
         }
     }
-    public void DeleteFromQuestLog(FetchQuest quest)
+    public void DeleteFromQuestLog(FetchQuest quest) // Removes the quest from the log but it reminds in the database
     {
         for (int i = 0; i < texts.Count; i++)
         {

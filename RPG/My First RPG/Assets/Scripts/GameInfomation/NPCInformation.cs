@@ -16,6 +16,7 @@ public class NPCInformation : MonoBehaviour
     void Init()
     {
         QuestIDs = new List<int>();
+        if(GetComponent<Interactions>())
         interactions = gameObject.GetComponent<Interactions>();
         
     }

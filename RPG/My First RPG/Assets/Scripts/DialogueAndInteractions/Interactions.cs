@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.Linq;
 using System.Text.RegularExpressions;
+using ScriptingHelper;
 // Quest npcs will have different text then normal ones
 // Ever quest npc will be given a list of quest ids and a counter
 // the counter will start at zero, and that will be for finding the correct quest id 
@@ -16,6 +17,9 @@ using System.Text.RegularExpressions;
 public class Interactions : MonoBehaviour
 {
     GameObject player;
+    public bool isNotQuestGiver;
+    [Tooltip("Only matters if it is not a quest giver")]
+    public string textToSay;
     Text text;
     bool isDisplayed;
     [HideInInspector]
@@ -26,8 +30,8 @@ public class Interactions : MonoBehaviour
     QuestList questList;
     [HideInInspector]
     public bool isNear;
-
-
+    NPCInformation[] npcs;
+    GameObject[] otherNpcs;
     // Use this for initialization
     void Start()
     {
@@ -37,88 +41,119 @@ public class Interactions : MonoBehaviour
         text = GameObject.FindGameObjectWithTag("Dialogue").GetComponent<Text>();
         isAccepted = false;
         questList = GameObject.FindGameObjectWithTag("UiManager").GetComponent<QuestList>();
-        
+        npcs = GameObject.FindObjectsOfType(typeof(NPCInformation)) as NPCInformation[];
+        otherNpcs = new GameObject[npcs.Length];
+        for (int i = 0; i < npcs.Length; i++)
+        {
+            otherNpcs[i] = npcs[i].gameObject;
+        }
+
     }
 
     // Update is called once per frame
+    public bool GetDisplay()
+    {
+        return isDisplayed;
+    }
     void Update()
     {
-        
-         isNear = IsCharacterClose();
-        if (isNear && Input.GetKeyDown(KeyCode.Z) && isAccepted && questText.activeInHierarchy == false)
+            isNear = IsCharacterClose();
+        if (!isNotQuestGiver)
         {
-            isDisplayed = true;
-            questText.SetActive(true);
-            questText.GetComponentInChildren<Text>().text = "Hows that quest going?";
-        }
-        if (isDisplayed && Input.GetKeyDown(KeyCode.Z) && !isAccepted)
-        {
-            // Change the name to Enemy Information name <- found the looppole do in the morning
-            FetchQuest quest = new FetchQuest();
-           
-            string temp = quest.GetObjective(questId); // I need a system to after certian levels the quest iD for the npc changes, or after certain prerequistes are meet.
-            if (!quest.isQuestComplete && temp.Contains("Kill")) // Maybe if i make an array of quest iDs then make as system to where the quest id changes
-            {                                                   // After the player completes a prerequistes, also make NPC information that stores all of 
-                                                                // There quest...                
-                                                                // Also i have to add all the quest to a active quest list for the player.
-                EnemyInformation[] temporary = GameObject.FindObjectsOfType(typeof(EnemyInformation)) as EnemyInformation[];
-                List<GameObject> enemysFound = new List<GameObject>();
-                for (int i = 0; i < temporary.Length; i++)
-                {
-                    if (temporary[i].name == quest.GetObjectiveName(questId))
+            if (isNear && Input.GetKeyDown(KeyCode.Z) && isAccepted && questText.activeInHierarchy == false)
+            {
+                isDisplayed = true;
+                questText.SetActive(true);
+                questText.GetComponentInChildren<Text>().text = "Hows that quest going?";
+            }
+            if (isDisplayed && Input.GetKeyDown(KeyCode.Z) && !isAccepted)
+            {
+                // Change the name to Enemy Information name <- found the looppole do in the morning
+                FetchQuest quest = new FetchQuest();
+
+                string temp = quest.GetObjective(questId); // I need a system to after certian levels the quest iD for the npc changes, or after certain prerequistes are meet.
+                if (!quest.isQuestComplete && temp.Contains("Kill")) // Maybe if i make an array of quest iDs then make as system to where the quest id changes
+                {                                                   // After the player completes a prerequistes, also make NPC information that stores all of 
+                                                                    // There quest...                
+                                                                    // Also i have to add all the quest to a active quest list for the player.
+                    EnemyInformation[] temporary = GameObject.FindObjectsOfType(typeof(EnemyInformation)) as EnemyInformation[]; // Need a more dynamic system 
+                                                                                                                                 //just in case I need to switch scenes
+                    List<GameObject> enemysFound = new List<GameObject>();
+                    for (int i = 0; i < temporary.Length; i++)
                     {
-                        enemysFound.Add(temporary[i].gameObject);
+                        if (temporary[i].name == quest.GetObjectiveName(questId))
+                        {
+                            enemysFound.Add(temporary[i].gameObject);
+                        }
                     }
+                    GameObject[] temp2 = enemysFound.ToArray();
+                    KillQuest kill = gameObject.GetComponent<KillQuest>();
+                    // Learn Regex-> this is how you convert find numbers in a string and add it to the string then parse
+                    string result = Regex.Match(quest.GetObjective(questId), @"\d+").Value;
+                    int resultNum = int.Parse(result);
+                    kill.InitializeKillQuest(temp2, resultNum);
+                    GameObject tempQuestText = GameObject.FindGameObjectWithTag("QuestNotif");
+                    tempQuestText.GetComponent<Text>().text = "Quest Started!!";
+                    StartCoroutine(GetRidOfCompleteText());
                 }
-                GameObject[] temp2 = enemysFound.ToArray();
-                KillQuest kill = gameObject.GetComponent<KillQuest>();
-                // Learn Regex-> this is how you convert find numbers in a string and add it to the string then parse
-                string result = Regex.Match(quest.GetObjective(questId), @"\d+").Value;
-                int resultNum = int.Parse(result);
-                kill.InitializeKillQuest(temp2, resultNum);
-                GameObject tempQuestText = GameObject.FindGameObjectWithTag("QuestNotif");
-                tempQuestText.GetComponent<Text>().text = "Quest Started!!";
-                StartCoroutine(GetRidOfCompleteText());
+                else if (temp.Contains("Save"))
+                {
+                    GameObject tempQuestText = GameObject.FindGameObjectWithTag("QuestNotif");
+                    tempQuestText.GetComponent<Text>().text = "Quest Started!!";
+                    StartCoroutine(GetRidOfCompleteText());
+                    SaveQuest saveQuest = gameObject.GetComponent<SaveQuest>();
+                    saveQuest.StartSaveQuest(quest.GetObjectiveName(questId), this.gameObject);
+
+                }
+                else if (temp.Contains("Find"))
+                {
+                    GameObject tempQuestText = GameObject.FindGameObjectWithTag("QuestNotif");
+                    tempQuestText.GetComponent<Text>().text = "Quest Started!!";
+                    DropQuests drop = gameObject.GetComponent<DropQuests>();
+                    drop.ItemToFind(2, this.gameObject, 5);
+                }
+                FetchQuest tempQuest = new FetchQuest();
+                tempQuest = (FetchQuest)Quest.quest[questId - 1];
+                GameInformation.activeQuest.Add(tempQuest);
+                questList.AddToQuestLog();
+                isAccepted = true;
             }
-            else if (temp.Contains("Save"))
+
+            if (isNear && Input.GetKeyDown(KeyCode.Z) && !isAccepted)
             {
-                GameObject tempQuestText = GameObject.FindGameObjectWithTag("QuestNotif");
-                tempQuestText.GetComponent<Text>().text = "Quest Started!!";
-                StartCoroutine(GetRidOfCompleteText());
-                SaveQuest saveQuest = gameObject.GetComponent<SaveQuest>();
-                saveQuest.StartSaveQuest(quest.GetObjectiveName(questId), this.gameObject);
-                
+                isDisplayed = true;
+                questText.SetActive(true);
+                FetchQuest quest = new FetchQuest();
+                if (quest.GetRequriedLevel(questId) < GameInformation.PlayerLevel && quest.IsPlayerReady(questId))
+                {
+                    questText.GetComponentInChildren<Text>().text = quest.GetDescription(questId) + "\n Press Z to accept quest";
+                    text.text = "";
+                }
+
             }
-            else if(temp.Contains("Find"))
-            {
-                GameObject tempQuestText = GameObject.FindGameObjectWithTag("QuestNotif");
-                tempQuestText.GetComponent<Text>().text = "Quest Started!!";
-                DropQuests drop = gameObject.GetComponent<DropQuests>();
-                drop.ItemToFind(2, this.gameObject, 5);
-            }
-            FetchQuest tempQuest = new FetchQuest();
-            tempQuest = (FetchQuest)Quest.quest[questId-1];
-            GameInformation.activeQuest.Add(tempQuest);
-            questList.AddToQuestLog();
-            isAccepted = true;
         }
-        if (isNear && Input.GetKeyDown(KeyCode.Z) && !isAccepted)
+        else
         {
-            isDisplayed = true;
-            questText.SetActive(true);
-            FetchQuest quest = new FetchQuest();
-            if (quest.GetRequriedLevel(questId) < GameInformation.PlayerLevel && quest.IsPlayerReady(questId))
+            if(isNear && isDisplayed && Input.GetKeyDown(KeyCode.Z))
             {
-                questText.GetComponentInChildren<Text>().text = quest.GetDescription(questId) + "\n Press Z to accept quest";
+                isDisplayed = false;
+                questText.SetActive(false);
+            }
+            
+            if (isNear && Input.GetKeyDown(KeyCode.Z) && !isDisplayed)
+            {
+                isDisplayed = true;
+                questText.SetActive(true);
+                questText.GetComponentInChildren<Text>().text = textToSay;
                 text.text = "";
             }
         }
 
     }
-
+    // WHen you complete the current quest you are on we call this function to remove it form he log and display your reward
     public void CompletedQuest()
     {
-        questList.DeleteFromQuestLog((FetchQuest)Quest.quest[questId-1]);
+        questList.DeleteFromQuestLog((FetchQuest)Quest.quest[questId - 1]);
         FetchQuest quest = new FetchQuest();
         quest.CompleteQuest(questId);
         GameObject temp = GameObject.FindGameObjectWithTag("QuestNotif");
@@ -126,7 +161,7 @@ public class Interactions : MonoBehaviour
         NPCInformation npc = gameObject.GetComponent<NPCInformation>();
         quest = (FetchQuest)Quest.quest[questId - 1];
         GameInformation.activeQuest.Remove(quest);
-        npc.QuestCounter++;
+        npc.QuestCounter++; // Quest counter is how I keep  track of what quest you are on in the sequence
         questId = npc.QuestIDs[npc.QuestCounter];
         isDisplayed = false;
         isAccepted = false;
@@ -135,7 +170,8 @@ public class Interactions : MonoBehaviour
 
     bool IsCharacterClose()
     {
-        
+        Helper help = new Helper();
+        Debug.Log(help.GetClosestGameObject(player, otherNpcs));
         if (Vector3.Distance(transform.position, player.transform.position) < 10)
         {
             //Checks if the other text is displayed then displays text
