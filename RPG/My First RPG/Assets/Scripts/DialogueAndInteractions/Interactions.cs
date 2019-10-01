@@ -14,6 +14,7 @@ using ScriptingHelper;
 // When it comes to save quest, make sure to use an _ so we can seperate it and grab the name of who we are saving
 // I think this is an ok quest system? LETS GO!
 
+    //Custom property drawers
 public class Interactions : MonoBehaviour
 {
     GameObject player;
