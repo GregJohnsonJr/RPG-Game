@@ -59,9 +59,17 @@ public class CityAI : MonoBehaviour
             isTalking = interactions.GetDisplay();
         }
         dist = Vector3.Distance(transform.position, startPos);
-        if(!isTalking)
+        if (!isTalking)
+        {
             StateChangeMachine();
-        else
+            
+            if(agent.isStopped && !isMerchant)
+            {
+                agent.isStopped = false;
+                //agent.velocity = Vector3.one;
+            }
+        }
+        else if(!isMerchant)
         {
             agent.isStopped = true;
             agent.velocity = Vector3.zero;

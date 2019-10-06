@@ -57,6 +57,10 @@ namespace ScriptingHelper
 
     class Helper
     {
+        Vector3 screenBottomLeft;
+        Vector3 screenBottomRight;
+        Vector3 screenTopLeft;
+        Vector3 screenTopRight;
         struct GameObjectInfo
         {
             public float distance;
@@ -74,8 +78,43 @@ namespace ScriptingHelper
                 info[i] = temp;
             }
             info = info.OrderBy(a => a.distance).ToArray();
+            for (int i = 0; i < info.Length; i++)
+            {
+                if(IsInView(player,info[i].obj))
+                {
+                    Debug.Log(info[i].obj);
+                    return info[i].obj;
+                }
+            }
             return info[0].obj;
         }
+        bool IsInView(GameObject player, GameObject objectToCheck)
+        {
+            Camera cam = Camera.main;
+            screenBottomLeft = cam.ViewportToWorldPoint(new Vector3(0, 0, player.transform.position.z));
+            screenTopRight = cam.ViewportToWorldPoint(new Vector3(1, 1, player.transform.position.z));
+
+            screenBottomRight = cam.ViewportToWorldPoint(new Vector3(1, 0, player.transform.position.z));
+            screenTopLeft = cam.ViewportToWorldPoint(new Vector3(0, 1, player.transform.position.z));
+            return AmIVisible(player);
+        }
+        bool AmIVisible(GameObject obj)
+        {
+            if (obj.transform.position.x > screenTopRight.x || obj.transform.position.x < screenTopLeft.x)
+            {
+                return false;
+            }
+            if (obj.transform.position.y > screenTopRight.y || obj.transform.position.y < screenBottomRight.y)
+            {
+                return false;
+            }
+
+            return true;
+        }
+    }
+    namespace CurrentGameInformation
+    {
+
     }
 
 }
