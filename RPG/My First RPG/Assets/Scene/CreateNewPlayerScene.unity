@@ -320,6 +320,7 @@ MonoBehaviour:
   isPlus: 0
   statNum: 0
   descText: {fileID: 1296311121}
+  dist: 0
 --- !u!114 &91868042
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -457,6 +458,7 @@ MonoBehaviour:
   isPlus: 0
   statNum: 0
   descText: {fileID: 1296311121}
+  dist: 0
 --- !u!114 &97098518
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -802,6 +804,7 @@ MonoBehaviour:
   isPlus: 0
   statNum: 0
   descText: {fileID: 1296311121}
+  dist: 0
 --- !u!114 &227997124
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1074,8 +1077,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isPlus: 1
-  statNum: 0
+  statNum: 3
   descText: {fileID: 1296311121}
+  dist: 70
 --- !u!114 &294412312
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1118,7 +1122,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 294412313}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 294412311}
+        m_MethodName: hasClicked
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &294412313
@@ -1290,8 +1305,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isPlus: 1
-  statNum: 0
+  statNum: 6
   descText: {fileID: 1296311121}
+  dist: 70
 --- !u!114 &397058123
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1334,7 +1350,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 397058124}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 397058122}
+        m_MethodName: hasClicked
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &397058124
@@ -2070,8 +2097,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isPlus: 1
-  statNum: 0
+  statNum: 5
   descText: {fileID: 1296311121}
+  dist: 70
 --- !u!114 &647063195
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2114,7 +2142,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 647063196}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 647063194}
+        m_MethodName: hasClicked
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &647063196
@@ -2286,8 +2325,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isPlus: 1
-  statNum: 0
+  statNum: 2
   descText: {fileID: 1296311121}
+  dist: 70
 --- !u!114 &689880403
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2330,7 +2370,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 689880404}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 689880402}
+        m_MethodName: hasClicked
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &689880404
@@ -2386,7 +2437,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &695684514
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2547,8 +2598,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isPlus: 1
-  statNum: 0
+  statNum: 4
   descText: {fileID: 1296311121}
+  dist: 70
 --- !u!114 &808334912
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2591,7 +2643,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 808334913}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 808334911}
+        m_MethodName: hasClicked
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &808334913
@@ -3006,6 +3069,7 @@ MonoBehaviour:
   isPlus: 0
   statNum: 0
   descText: {fileID: 1296311121}
+  dist: 0
 --- !u!114 &999492687
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3480,6 +3544,7 @@ MonoBehaviour:
   isPlus: 0
   statNum: 0
   descText: {fileID: 1296311121}
+  dist: 0
 --- !u!114 &1097678690
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3615,8 +3680,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isPlus: 1
-  statNum: 0
+  statNum: 1
   descText: {fileID: 1296311121}
+  dist: 70
 --- !u!114 &1190375097
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3659,7 +3725,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1190375098}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1190375096}
+        m_MethodName: hasClicked
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1190375098
@@ -4243,6 +4320,7 @@ MonoBehaviour:
   isPlus: 0
   statNum: 0
   descText: {fileID: 1296311121}
+  dist: 0
 --- !u!114 &1428678500
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5281,6 +5359,7 @@ MonoBehaviour:
   isPlus: 1
   statNum: 0
   descText: {fileID: 1296311121}
+  dist: 70
 --- !u!114 &1796406907
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5323,7 +5402,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1796406908}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1796406906}
+        m_MethodName: hasClicked
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1796406908
@@ -5923,6 +6013,7 @@ MonoBehaviour:
   isPlus: 0
   statNum: 0
   descText: {fileID: 1296311121}
+  dist: 0
 --- !u!114 &2141070500
 MonoBehaviour:
   m_ObjectHideFlags: 0
