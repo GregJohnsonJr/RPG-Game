@@ -10,6 +10,16 @@ public class GameInformation : MonoBehaviour {
         activeQuest = new List<FetchQuest>();
 
     }
+    void InitializeClassSetup()
+    {
+        Intellect += PlayerClass.Intellect;
+        Strength += PlayerClass.Strength;
+        Stamina += PlayerClass.Stamina;
+        Agility += PlayerClass.Agility;
+        Endurance += PlayerClass.Endurance;
+        Mastery += PlayerClass.Mastery;
+        Resistance += PlayerClass.Resistance;
+    }
     // public static List<BaseAbility> playerAbilities; //another way
 
     public static string PlayerBio { get; set; }

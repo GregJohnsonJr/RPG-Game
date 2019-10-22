@@ -114,7 +114,7 @@ namespace ScriptingHelper
     }
     namespace CurrentGameInformation
     {
-
+        
     }
 
 }
