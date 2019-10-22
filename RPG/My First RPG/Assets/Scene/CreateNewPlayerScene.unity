@@ -690,9 +690,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Intellect
-
-'
+  m_Text: Resistance
 --- !u!222 &149348522
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1712,9 +1710,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Intellect
-
-'
+  m_Text: Intellect
 --- !u!222 &455651334
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3859,9 +3855,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Intellect
-
-'
+  m_Text: Mastery
 --- !u!222 &1103300983
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3940,9 +3934,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Intellect
-
-'
+  m_Text: Endurance
 --- !u!222 &1157972749
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4251,9 +4243,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Intellect
-
-'
+  m_Text: Strength
 --- !u!222 &1259820018
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4548,9 +4538,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Intellect
-
-'
+  m_Text: Stamina
 --- !u!222 &1398109784
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -5860,9 +5848,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Intellect
-
-'
+  m_Text: Agility
 --- !u!222 &1762400967
 CanvasRenderer:
   m_ObjectHideFlags: 0
